@@ -44,6 +44,7 @@ ol {
   align-items: end;
   width: 100%;
   gap: 30px;
+  margin: auto;
 }
 
 .search-form {
@@ -55,6 +56,7 @@ ol {
 .content__list {
   position: relative;
   height: 300px;
+  width: 400px;
   overflow-y: scroll;
   scrollbar-color: #000 transparent;
 }
@@ -67,11 +69,13 @@ ol {
 .result__video-container {
   position: relative;
   width: 711px;
-  margin-bottom: 16px;
+  height: 420px;
 }
 
 .result__video {
   width: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .content__list-item:not(:last-child) {
@@ -85,7 +89,8 @@ ol {
 
 .content__video-card-thumbnail {
   height: 100px;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
 }
 
 .content__video-card-description-container {
@@ -99,7 +104,7 @@ ol {
 }
 
 .title {
-  font-family: Oswald;
+  font-family: Oswald, sans-serif;
   font-size: 75px;
   font-weight: 700;
   line-height: 94%;
@@ -118,6 +123,10 @@ ol {
   margin: 2px;
 }
 
+.content__card-link:active {
+  background-color: #007bff; 
+}
+
 .content__card-link_current {
   background-color: #545050;
 }
@@ -131,10 +140,14 @@ ol {
 }
 
 .content__video-card-title {
-  font-family: Oswald;
+  font-family: Oswald, sans-serif;
   font-size: 30px;
   font-weight: 700;
   text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 192px;    
 }
 
 .visually-hidden {
@@ -151,10 +164,21 @@ fieldset {
   border: none;
 }
 
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px;
+}
+
 .search-form__label {
   cursor: pointer;
   width: fit-content;
-  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-form__label:has(input[type="text"]):hover {
+  text-decoration: none; 
 }
 
 .search-form__label:hover {
@@ -163,7 +187,7 @@ fieldset {
 
 .search-form__textfield {
   appearance: none;
-  font-family: 'Fira Sans Condensed';
+  font-family: 'Fira Sans Condensed', sans-serif;
   font-weight: 400;
   font-size: 18px;
   width: 225px;
@@ -205,7 +229,7 @@ fieldset {
 
 .button {
   color: #fff;
-  font-family: 'Fira Sans Condensed';
+  font-family: 'Fira Sans Condensed', sans-serif;
   font-weight: 700;
   font-size: 18px;
   background-color: transparent;
@@ -228,4 +252,12 @@ fieldset {
 
 .more-button {
   width: 100%;
+}
+
+.content__video-card-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
 }
